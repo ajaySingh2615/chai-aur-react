@@ -2,10 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let [counter, setCounter] = useState(15);
+  const [counter, setCounter] = useState(15);
 
   function addValue() {
-    setCounter(counter + 1);
+    setCounter((prevCount) => prevCount + 1);
+    setCounter((prevCount) => prevCount + 1);
+    setCounter((prevCount) => prevCount + 1);
   }
 
   function removeValue() {
