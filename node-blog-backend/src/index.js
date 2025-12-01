@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import "./config/db.js";
 import postRoutes from "./routes/postRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
 
 // load environment variables
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // USE THE ROUTES
 app.use("/api/posts", postRoutes);
+app.use("/api/posts/:postId/comments", commentRoutes);
 
 // Basic Test route
 app.get("/", (req, res) => {
