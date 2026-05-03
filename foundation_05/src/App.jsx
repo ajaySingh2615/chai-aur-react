@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState(true);
   const [seconds, setSeconds] = useState(10);
 
   useEffect(() => {
@@ -44,6 +44,10 @@ function App() {
       controller.abort();
     };
   }, []);
+
+  if (status) {
+    // return <LoadingComponent />;
+  }
 
   return (
     <>
