@@ -21,5 +21,19 @@ export const authService = {
     return data;
   },
 
-  as
+  async logout() {
+    await api.post("/auth/logout", {
+      refreshToken: tokenStore.getRefresh(),
+    });
+    tokenStore.clear();
+  },
+
+  async getProfile() {
+    const { data } = await api.get("/auth/profile", {
+      headers: {
+        Authorization: `Bearer ${tokenStore.getAccess()}`,
+      },
+    });
+    return data;
+  },
 };
